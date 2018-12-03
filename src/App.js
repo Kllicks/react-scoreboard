@@ -46,11 +46,22 @@ class App extends Component {
       return (
         <div key={score.id}>
           <h2>Name: {score.name} // Score: {score.score}</h2>
+          <button onClick={() => this._incrementScoreById(score.id)}>+</button>
         </div>
       );
     });
     return cards;
   }
+  
+  _incrementScoreById(id) {
+    // find the player in this.state.scores
+    // increment their score
+    // and call this.setState
+  
+    console.log(`test`);
+  
+  }
 }
+
 
 export default App;
