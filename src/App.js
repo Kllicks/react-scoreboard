@@ -53,27 +53,63 @@ class App extends Component {
     return cards;
   }
   
-  _incrementScoreById(id) {
-    // find the player in this.state.scores
-    // increment their score
-    const newScores = this.state.scores.map(scoreObj => {
-      if (scoreObj.id !== id) {
-        return scoreObj;
-      } else {
-        return {
-          id: scoreObj.id,
-          name: scoreObj.name,
-          score: scoreObj.score + 1
-        }
-      }
-    });
+  // Version 1: .map, manually constructing replacement
+  // _incrementScoreById(id) {
+  //   // find the player in this.state.scores
+  //   // increment their score
+  //   const newScores = this.state.scores.map(scoreObj => {
+  //     if (scoreObj.id !== id) {
+  //       return scoreObj;
+  //     } else {
+  //       return {
+  //         id: scoreObj.id,
+  //         name: scoreObj.name,
+  //         score: scoreObj.score + 1
+  //       }
+  //     }
+  //   });
     
+  //   // and call this.setState
+  //   this.setState({
+  //     scores: newScores
+  //   });
+  // }
+
+  // Version 2: .map, using a shorthand to copy values out of the original
+// _incrementScoreById(id) {
+//   // find the player in this.state.scores
+//   //increment their score
+//   const newScores = this.state.scores.map(scoreObj => {
+//     if(scoreObj.id !== id) {
+//       return scoreObj;
+//     } else {
+//       return {
+//         ...scoreObj,
+//         score: scoreObj.score + 1
+//       }
+//     }
+//   });
+//   // and call this.setState
+//   this.setState({
+//     scores: newScores
+//   });
+// }
+
+// Version 3: .map, object copy + ternary + implicit return
+// using a shorthand copy values out of the original score
+_incrementScoreById(id) {
+  //find the player in this.state.scores
+  // increment their score
+  const newScores = this.state.scores.map(scoreObj => {
+    return scoreObj.id !== id ? scoreObj: {...scoreObj, score: scoreObj.score + 1}
+  });
+  // and call this.setState
     // and call this.setState
-    this.setState({
-      scores: newScores
-    });
-  }
+  this.setState({
+    scores: newScores
+  });
 }
 
+}
 
 export default App;
