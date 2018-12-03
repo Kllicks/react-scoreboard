@@ -52,6 +52,8 @@ class App extends Component {
           score = {score.score}
           upClick = {this._incrementScoreById.bind(this)}
           downClick = {this._decrementScoreById.bind(this)}
+          // upClick = {(e) => this._incrementScoreById(e)}
+          // downClick = {(e) => this._decrementScoreById(e)}
         />
       );
     });
