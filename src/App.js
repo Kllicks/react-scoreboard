@@ -56,14 +56,14 @@ class App extends Component {
   _incrementScoreById(id) {
     // find the player in this.state.scores
     // increment their score
-    const newScores = this.state.scores.map(score => {
-      if (score.id !== id) {
-        return score;
+    const newScores = this.state.scores.map(scoreObj => {
+      if (scoreObj.id !== id) {
+        return scoreObj;
       } else {
         return {
-          id: score.id,
-          name: score.name,
-          score: score.score + 1
+          id: scoreObj.id,
+          name: scoreObj.name,
+          score: scoreObj.score + 1
         }
       }
     });
